@@ -241,20 +241,8 @@ breaklines=true
 \newcommand{\enterprise}[1]{{\fontsize{8}{10}\lucida \emph{\color{Bittersweet}{#1}}}}
 
 \newcommand{\imagicair}{{\sffamily \color{blue}{imagic}\color{ForestGreen}{air}}}
-\newcommand{\linux}{\so{Linux}}
-\newcommand{\windows}{\so{Windows\texttrademark}}
-\newcommand{\apachehttp}{\textbf{Apache HTTP}}
-\newcommand{\tomcat}{\sw{Tomcat}}
-\newcommand{\jboss}{\textbf{JBoss EAP}}
-\newcommand{\consolajboss}{\textbf{Consola JBoss EAP}}
-\newcommand{\consolacli}{\textbf{Consola JBoss CLI}}
 
 \RequirePackage{imagicair-technical-sw}
-
-%\newcommand{\DESA}{\emph{DESA}}
-%\newcommand{\QA}{\emph{QA}}
-%\newcommand{\TEST}{\emph{TEST}}
-%\newcommand{\PROD}{\emph{PROD}}
 
 \author[1]{Ricardo Araos Rosales}
 \affil[1]{\imagicair{} consultores}
