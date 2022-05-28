@@ -19,6 +19,7 @@
 \RequirePackage{fontawesome}
 
 \usepackage{anyfontsize}
+\usepackage{wasysym}
 \RequirePackage{fontspec}
 \RequirePackage{relsize}
 \RequirePackage{polyglossia}
@@ -87,9 +88,52 @@ frametitlerule=true,frametitlerulecolor=cerulean,
 frametitlebackgroundcolor=orange,
 frametitlefont={\bfseries\sffamily\color{white}\hspace{2em}},
 frametitlerulewidth=0.5pt,
+frametitle=Shell,
 backgroundcolor=black,
-font={\hack\small\color{ForestGreen!70}}
+everyline=true,
+font={\hack\tiny\color{ForestGreen!70}}
 }
+
+
+\lstnewenvironment{codeJava} {%
+\lstset{language=Java,basicstyle=\tiny\ttfamily,breaklines=true,%
+	aboveskip=5pt,belowskip=5pt, %
+    keywordstyle=\color{ochre}}}{}
+\surroundwithmdframed[style=code, frametitle={Ejemplo Java}]{codeJava}
+
+\lstnewenvironment{codeMSSQL} {%
+\lstset{language=SQL,basicstyle=\scriptsize\ttfamily,breaklines=true,%
+	aboveskip=5pt,belowskip=5pt,%
+	breaklines=true, % 
+    morekeywords={for, go, login, to, use, user, with}, %
+    numbers=left, %
+	numberstyle={{\color{ochre} \ttfamily}}, %
+    keywordstyle=\color{cerulean}, %
+    commentstyle=\color{orange}  
+  }}{}
+\surroundwithmdframed[style=code, frametitle={Consola SQL}]{codeMSSQL}
+
+\lstnewenvironment{shellBash} {%
+\lstset{language=Bash,basicstyle=\scriptsize\ttfamily,breaklines=true,%
+	aboveskip=8pt,belowskip=5pt, %
+	breaklines=true, %
+	escapeinside={\%*}{*)}, %
+    numbers=left, %
+	numberstyle={{\color{ochre} \ttfamily}}, %
+    keywordstyle={{\color{plum} \emph}} 
+  }}{}
+\surroundwithmdframed[style=console, frametitle={Shell BASH}]{shellBash}
+
+\lstnewenvironment{shellBat} {%
+\lstset{language=sh,basicstyle=\scriptsize\ttfamily,breaklines=true,%
+	aboveskip=5pt,belowskip=5pt, %
+	breaklines=true, % 
+    numbers=left, %
+	numberstyle={{\color{ochre} \ttfamily}}, %
+    keywordstyle=\color{orange}}}{}
+\surroundwithmdframed[style=console, frametitle={Shell BAT}]{shellBat}
+
+
 
 \mdfdefinestyle{alerta}{%
 rightline=true,innerleftmargin=10,innerrightmargin=10,
@@ -185,6 +229,7 @@ breaklines=true
 \newfontfamily{\segoei}[UprightFont={* Italic}]{Segoe UI}
 \newfontfamily{\segoeib}[UprightFont={* Bold Italic}]{Segoe UI}
 \newfontfamily{\veraSe}[UprightFont={* Bold}]{Bitstream Vera Sans Mono}
+\newfontfamily{\symbola}{Symbola}
 \RequirePackage{fancyhdr}
 \pagestyle{fancy}
 
@@ -239,8 +284,16 @@ breaklines=true
 \newcommand{\app}[1]{\emph{\color{MidnightBlue}{#1}}}
 \newcommand{\mainApp}[1]{{\smaller\segoeib \selectfont \textbf{\color{MidnightBlue}{#1}}}}
 \newcommand{\enterprise}[1]{{\fontsize{8}{10}\lucida \emph{\color{Bittersweet}{#1}}}}
+\newcommand{\prompt}{{{\color{cerulean}{machine:\char"0024} }}}
+\newcommand{\sprompt}[1]{{{\color{cerulean}{machine:\char"0024}}  \mbox{{#1}} \Return\\}}
+\newcommand{\sqlComment}[1]{{{\color{cerulean}\# {#1}} }}
 
 \newcommand{\imagicair}{{\sffamily \color{blue}{imagic}\color{ForestGreen}{air}}}
+
+% emoticon
+\newcommand{\emoticonXD}{{\symbola \selectfont 😆}}
+\newcommand{\emoticonWink}{{\symbola \selectfont {\colorbox{yellow}{\char"1F609}}}}
+
 
 \RequirePackage{imagicair-technical-sw}
 
