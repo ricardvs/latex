@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{riaraos}[201/09/06 Documento base para Ricardvs]
+\ProvidesClass{imagicair-technical}[201/09/06 Documento base para documentos en alambritocorp]
 
 \LoadClass[DIV=12,%
                BCOR=0mm,%
@@ -113,6 +113,18 @@ font={\hack\tiny\color{ForestGreen!70}}
   }}{}
 \surroundwithmdframed[style=code, frametitle={Consola SQL}]{codeMSSQL}
 
+\lstnewenvironment{codeXML} {%
+\lstset{language=XML,basicstyle=\scriptsize\ttfamily,breaklines=true,%
+	aboveskip=5pt,belowskip=5pt,%
+	breaklines=true, % 
+    morekeywords={for, go, login, to, use, user, with}, %
+    numbers=left, %
+	numberstyle={{\color{ochre} \ttfamily}}, %
+    keywordstyle=\color{cerulean}, %
+    commentstyle=\color{orange}  
+  }}{}
+\surroundwithmdframed[style=code, frametitle={Código XML}]{codeXML}
+
 \lstnewenvironment{shellBash} {%
 \lstset{language=Bash,basicstyle=\scriptsize\ttfamily,breaklines=true,%
 	aboveskip=8pt,belowskip=5pt, %
@@ -141,7 +153,7 @@ frametitlerule=true,frametitlerulecolor=red,
 frametitlebackgroundcolor=red,
 frametitlefont={\bfseries\sffamily\color{white}\hspace{2em}},
 frametitlerulewidth=2pt,
-backgroundcolor=whitek
+backgroundcolor=white,
 font={\color{plum}},
 }
 
