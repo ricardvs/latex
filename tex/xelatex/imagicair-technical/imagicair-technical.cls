@@ -157,11 +157,24 @@ backgroundcolor=white,
 font={\color{plum}},
 }
 
+\mdfdefinestyle{warning}{%
+rightline=true,innerleftmargin=10,innerrightmargin=10,
+frametitlerule=true,frametitlerulecolor=Dandelion,
+frametitlebackgroundcolor=YellowOrange,
+frametitlefont={\bfseries\sffamily\color{white}\hspace{2em}},
+frametitlerulewidth=2pt,
+backgroundcolor=white,
+font={\color{DarkOrchid}},
+}
+
+
+
 \RequirePackage[]{draftwatermark}
 %\RequirePackage[final]{draftwatermark}
 \SetWatermarkText{BORRADOR}
-\SetWatermarkScale{0.75}
-\SetWatermarkLightness{0.95}
+\SetWatermarkLightness{0.75}
+\DraftwatermarkOptions{angle=0,vpos=0.03\paperheight, scale=0.4}
+
 
 \RequirePackage[dvipsnames]{xcolor}
 \definecolor{light-gray}{gray}{0.87}
@@ -286,6 +299,7 @@ breaklines=true
 \newcommand{\ip}[1]{{\ttfamily{\colorbox{ultra-light-gray}{\color{purple}{#1}}}}}
 \newcommand{\inlineCode}[1]{{\ttfamily{\colorbox{light-gray}{#1}}}}
 \newcommand{\cmd}[1]{{\ttfamily{\colorbox{black}{\color{ForestGreen}{#1}}}}}
+\newcommand{\module}[1]{{\ttfamily{\colorbox{RoyalPurple}{\color{ultra-light-gray}{#1}}}}}
 \newcommand{\constant}[1]{{\ttfamily{\color{Sepia}{#1}}}}
 \newcommand{\variable}[1]{{\ttfamily{\color{WildStrawberry}{#1}}}}
 \newcommand{\appLabel}[1]{{\ttfamily{\color{DarkOrchid}{#1}}}}
