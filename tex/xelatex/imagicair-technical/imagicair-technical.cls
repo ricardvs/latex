@@ -96,8 +96,9 @@ font={\hack\tiny\color{ForestGreen!70}}
 
 
 \lstnewenvironment{codeJava} {%
-\lstset{language=Java,basicstyle=\tiny\ttfamily,breaklines=true,%
-	aboveskip=5pt,belowskip=5pt, %
+\lstset{language=Java,basicstyle=\scriptsize\ttfamily,breaklines=true,%
+	aboveskip=12pt,belowskip=12pt,xleftmargin=5pt, %
+	numbers=left, numberstyle={{\color{ochre} \ttfamily}}, %
     keywordstyle=\color{ochre}}}{}
 \surroundwithmdframed[style=code, frametitle={Ejemplo Java}]{codeJava}
 
