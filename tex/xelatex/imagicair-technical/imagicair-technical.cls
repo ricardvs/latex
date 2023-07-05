@@ -102,6 +102,31 @@ font={\hack\tiny\color{ForestGreen!70}}
     keywordstyle=\color{ochre}}}{}
 \surroundwithmdframed[style=code, frametitle={Ejemplo Java}]{codeJava}
 
+\lstdefinelanguage{TypeScript}{
+  keywords={abstract, any, as, boolean, break, case, catch, class, console, 
+    const, continue, debugger, declare, default, delete, do, else, enum, export, 
+    extends, false, finally, for, from, function, get, if, implements, import, in, 
+    infer, instanceof, interface, keyof, let, module, namespace, never, new, null, 
+    number, object, package, private, protected, public, readonly, require, return, 
+    set, static, string, super, switch, symbol, this, throw, true, try, type, typeof, 
+    undefined, unique, unknown, var, void, while, with, yield,
+    map, pipe, tap, forkJoin, distinct, switchMap, subscribe},
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  sensitive=true
+}
+
+\lstnewenvironment{codeTypeScript} {%
+\lstset{language=TypeScript,basicstyle=\scriptsize\ttfamily,breaklines=true,%
+	aboveskip=12pt,belowskip=12pt,xleftmargin=5pt, %
+	numbers=left, numberstyle={{\color{ochre} \ttfamily}}, %
+    keywordstyle=\color{ochre}}}{}
+\surroundwithmdframed[style=code, frametitle={Ejemplo TypeScript}]{codeTypeScript}
+
+
+
 \lstnewenvironment{codeMSSQL} {%
 \lstset{language=SQL,basicstyle=\scriptsize\ttfamily,breaklines=true,%
 	aboveskip=5pt,belowskip=5pt,%
