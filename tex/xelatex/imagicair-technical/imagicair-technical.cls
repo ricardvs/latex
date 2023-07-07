@@ -94,6 +94,37 @@ everyline=true,
 font={\hack\tiny\color{ForestGreen!70}}
 }
 
+\lstdefinelanguage{JSON}{
+    keywords={null},
+    keywordstyle=\color{ochre},
+    basicstyle=\scriptsize\ttfamily\color{ultra-light-gray},
+    stringstyle=\ttfamily\color{ultra-light-gray},
+    numbers=left,
+    numberstyle=\scriptsize\color{ochre}\ttfamily,
+	aboveskip=4pt,
+    belowskip=4pt,
+    lineskip=0pt,
+    xleftmargin=5pt,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=true,
+    breaklines=true,
+    frame=none,
+    showlines=false,
+    backgroundcolor=\color{black},
+    literate=
+      {:}{{{\color{magenta}{:}}}}{1}
+      {,}{{{\color{magenta}{,}}}}{1}
+      {\{}{{{\color{ochre}{\{}}}}{1}
+      {\}}{{{\color{ochre}{\}}}}}{1}
+      {[}{{{\color{ochre}{[}}}}{1}
+      {]}{{{\color{ochre}{]}}}}{1},
+}
+
+\lstnewenvironment{codeJSON} {%
+\lstset{language=JSON
+    }}{}
+
 
 \lstnewenvironment{codeJava} {%
 \lstset{language=Java,basicstyle=\scriptsize\ttfamily,breaklines=true,%
@@ -115,7 +146,12 @@ font={\hack\tiny\color{ForestGreen!70}}
   morecomment=[s]{/*}{*/},
   morestring=[b]',
   morestring=[b]",
-  sensitive=true
+  sensitive=true,
+  keywordstyle=\color{magenta}\bfseries,
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{white},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
 }
 
 \lstnewenvironment{codeTypeScript} {%
@@ -123,7 +159,7 @@ font={\hack\tiny\color{ForestGreen!70}}
 	aboveskip=12pt,belowskip=12pt,xleftmargin=5pt, %
 	numbers=left, numberstyle={{\color{ochre} \ttfamily}}, %
     keywordstyle=\color{ochre}}}{}
-\surroundwithmdframed[style=code, frametitle={Ejemplo TypeScript}]{codeTypeScript}
+%\surroundwithmdframed[style=code, frametitle={Ejemplo TypeScript}]{codeTypeScript}
 
 
 
