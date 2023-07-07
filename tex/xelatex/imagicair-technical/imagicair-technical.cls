@@ -111,6 +111,7 @@ font={\hack\tiny\color{ForestGreen!70}}
     breaklines=true,
     frame=lines,
     showlines=false,
+    keepspaces=true,
     rulecolor=\color{black},
     fillcolor=\color{ultra-light-gray},
     backgroundcolor=\color{ghostly-white},
@@ -120,7 +121,8 @@ font={\hack\tiny\color{ForestGreen!70}}
       {\{}{{{\color{ochre}{\{}}}}{1}
       {\}}{{{\color{ochre}{\}}}}}{1}
       {[}{{{\color{ochre}{[}}}}{1}
-      {]}{{{\color{ochre}{]}}}}{1},
+      {]}{{{\color{ochre}{]}}}}{1}
+      {\"}{{{\color{plum}{"}}}}{1}
 }
 
 \lstnewenvironment{codeJSON} {%
@@ -133,7 +135,10 @@ font={\hack\tiny\color{ForestGreen!70}}
 	aboveskip=12pt,belowskip=12pt,xleftmargin=5pt, %
 	numbers=left, numberstyle={{\color{ochre} \ttfamily}}, %
     keywordstyle=\color{magenta},
+    keywords=[2]{Long, Integer, Double, Byte, Boolean, String, List, long, int, double, byte, boolean},
+    keywordstyle=[2]\color{plum},
     breaklines=true,
+    keepspaces=true,
     frame=lines,
     basicstyle=\scriptsize\ttfamily\color{cerulean},
     stringstyle=\ttfamily\color{purple},
@@ -147,35 +152,48 @@ font={\hack\tiny\color{ForestGreen!70}}
 %\surroundwithmdframed[style=code, frametitle={Ejemplo Java}]{codeJava}
 
 \lstdefinelanguage{TypeScript}{
-  keywords={abstract, any, as, boolean, break, case, catch, class, console, 
+  keywords=[1]{abstract, any, as, boolean, break, case, catch, class, console, 
     const, continue, debugger, declare, default, delete, do, else, enum, export, 
     extends, false, finally, for, from, function, get, if, implements, import, in, 
     infer, instanceof, interface, keyof, let, module, namespace, never, new, null, 
     number, object, package, private, protected, public, readonly, require, return, 
     set, static, string, super, switch, symbol, this, throw, true, try, type, typeof, 
-    undefined, unique, unknown, var, void, while, with, yield,
-    map, pipe, tap, forkJoin, distinct, switchMap, subscribe},
+    undefined, unique, unknown, var, void, while, with, yield},
+  basicstyle=\color{dark-gray}\scriptsize\ttfamily,
+  keywords=[2]{findById, map, pipe, tap, forkJoin, distinct, switchMap, subscribe, transform, instant},
+  keywordstyle=[1]\color{magenta}\scriptsize\ttfamily\bfseries,
+  keywordstyle=[2]\color{plum}\scriptsize\ttfamily,
   morecomment=[l]{//},
   morecomment=[s]{/*}{*/},
   morestring=[b]',
   morestring=[b]",
   sensitive=true,
   frame=lines,
-  keywordstyle=\color{magenta}\bfseries,
-  ndkeywordstyle=\color{darkgray}\bfseries,
   identifierstyle=\color{dark-gray},
   commentstyle=\color{purple}\ttfamily,
   stringstyle=\color{red}\ttfamily,
   rulecolor=\color{black},
+  numbers=left,
   fillcolor=\color{ultra-light-gray},
-  backgroundcolor=\color{ghostly-white}
+  backgroundcolor=\color{ghostly-white},
+  keepspaces=true,
+  literate= *{\{}{{{\color{magenta}{\{}}}}{1}
+      {\}}{{{\color{magenta}{\}}}}}{1}
+      {[}{{{\color{purple}{[}}}}{1}
+      {]}{{{\color{purple}{]}}}}{1}
+      {>}{{{\color{cerulean}{>}}}}{1}
+      {<}{{{\color{cerulean}{<}}}}{1}
+      {;}{{{\color{cerulean}{;}}}}{1}
+      {=}{{{\color{cerulean}{=}}}}{1}
 }
 
 \lstnewenvironment{codeTypeScript} {%
-\lstset{language=TypeScript,basicstyle=\scriptsize\ttfamily,breaklines=true,%
-	aboveskip=12pt,belowskip=12pt,xleftmargin=5pt, %
-	numbers=left, numberstyle={{\color{ochre} \ttfamily}}, %
-    keywordstyle=\color{ochre}}}{}
+\lstset{language=TypeScript,
+    breaklines=true,%
+	aboveskip=12pt,
+    belowskip=12pt,
+    xleftmargin=5pt, %
+    }}{}
 %\surroundwithmdframed[style=code, frametitle={Ejemplo TypeScript}]{codeTypeScript}
 
 
@@ -210,11 +228,16 @@ font={\hack\tiny\color{ForestGreen!70}}
     commentstyle=\color{orange},
     rulecolor=\color{black},
     fillcolor=\color{ultra-light-gray},
+    keepspaces=true,
     backgroundcolor=\color{ghostly-white},
     literate=
       {<}{{{\color{magenta}{<}}}}{1}
       {>}{{{\color{magenta}{>}}}}{1}
-      {/}{{{\color{ochre}{/}}}}{1}
+      {/}{{{\color{plum}{/}}}}{1}
+      {\"}{{{\color{magenta}{"}}}}{1}
+      {[}{{{\color{magenta}{[}}}}{1}
+      {]}{{{\color{magenta}{]}}}}{1}
+      {=}{{{\color{magenta}{=}}}}{1}
   }}{}
 %\surroundwithmdframed[style=code, frametitle={Código XML}]{codeXML}
 
