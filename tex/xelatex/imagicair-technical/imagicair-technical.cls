@@ -97,7 +97,7 @@ font={\hack\tiny\color{ForestGreen!70}}
 \lstdefinelanguage{JSON}{
     keywords={null},
     keywordstyle=\color{ochre},
-    basicstyle=\scriptsize\ttfamily\color{ultra-light-gray},
+    basicstyle=\scriptsize\ttfamily\color{black},
     stringstyle=\ttfamily\color{ultra-light-gray},
     numbers=left,
     numberstyle=\scriptsize\color{ochre}\ttfamily,
@@ -109,9 +109,11 @@ font={\hack\tiny\color{ForestGreen!70}}
     numbersep=8pt,
     showstringspaces=true,
     breaklines=true,
-    frame=none,
+    frame=lines,
     showlines=false,
-    backgroundcolor=\color{black},
+    rulecolor=\color{black},
+    fillcolor=\color{ultra-light-gray},
+    backgroundcolor=\color{ghostly-white},
     literate=
       {:}{{{\color{magenta}{:}}}}{1}
       {,}{{{\color{magenta}{,}}}}{1}
@@ -130,8 +132,19 @@ font={\hack\tiny\color{ForestGreen!70}}
 \lstset{language=Java,basicstyle=\scriptsize\ttfamily,breaklines=true,%
 	aboveskip=12pt,belowskip=12pt,xleftmargin=5pt, %
 	numbers=left, numberstyle={{\color{ochre} \ttfamily}}, %
-    keywordstyle=\color{ochre}}}{}
-\surroundwithmdframed[style=code, frametitle={Ejemplo Java}]{codeJava}
+    keywordstyle=\color{magenta},
+    breaklines=true,
+    frame=lines,
+    basicstyle=\scriptsize\ttfamily\color{cerulean},
+    stringstyle=\ttfamily\color{purple},
+    identifierstyle=\color{dark-gray},
+    rulecolor=\color{black},
+    fillcolor=\color{ultra-light-gray},
+    backgroundcolor=\color{ghostly-white},
+    literate=
+        {@}{{{\color{plum}{@}}}}{1},
+    } }{}
+%\surroundwithmdframed[style=code, frametitle={Ejemplo Java}]{codeJava}
 
 \lstdefinelanguage{TypeScript}{
   keywords={abstract, any, as, boolean, break, case, catch, class, console, 
@@ -147,11 +160,15 @@ font={\hack\tiny\color{ForestGreen!70}}
   morestring=[b]',
   morestring=[b]",
   sensitive=true,
+  frame=lines,
   keywordstyle=\color{magenta}\bfseries,
   ndkeywordstyle=\color{darkgray}\bfseries,
-  identifierstyle=\color{white},
+  identifierstyle=\color{dark-gray},
   commentstyle=\color{purple}\ttfamily,
   stringstyle=\color{red}\ttfamily,
+  rulecolor=\color{black},
+  fillcolor=\color{ultra-light-gray},
+  backgroundcolor=\color{ghostly-white}
 }
 
 \lstnewenvironment{codeTypeScript} {%
@@ -164,28 +181,42 @@ font={\hack\tiny\color{ForestGreen!70}}
 
 
 \lstnewenvironment{codeMSSQL} {%
-\lstset{language=SQL,basicstyle=\scriptsize\ttfamily,breaklines=true,%
+\lstset{language=SQL,
+    basicstyle=\scriptsize\ttfamily,
+    breaklines=true,%
 	aboveskip=5pt,belowskip=5pt,%
 	breaklines=true, % 
     morekeywords={for, go, login, to, use, user, with}, %
     numbers=left, %
 	numberstyle={{\color{ochre} \ttfamily}}, %
     keywordstyle=\color{cerulean}, %
-    commentstyle=\color{orange}  
+    commentstyle=\color{orange},
+    frame=lines,
+    rulecolor=\color{black},
+    fillcolor=\color{ultra-light-gray},
+    backgroundcolor=\color{ghostly-white}
   }}{}
-\surroundwithmdframed[style=code, frametitle={Consola SQL}]{codeMSSQL}
+%\surroundwithmdframed[style=code, frametitle={Consola SQL}]{codeMSSQL}
 
 \lstnewenvironment{codeXML} {%
 \lstset{language=XML,basicstyle=\scriptsize\ttfamily,breaklines=true,%
 	aboveskip=5pt,belowskip=5pt,%
 	breaklines=true, % 
-    morekeywords={for, go, login, to, use, user, with}, %
+    morekeywords={for, go, login, to, use, user, with}, 
+    frame=lines,
     numbers=left, %
-	numberstyle={{\color{ochre} \ttfamily}}, %
-    keywordstyle=\color{cerulean}, %
-    commentstyle=\color{orange}  
+	numberstyle={{\color{ochre} \ttfamily}}, 
+    keywordstyle=\color{cerulean}, 
+    commentstyle=\color{orange},
+    rulecolor=\color{black},
+    fillcolor=\color{ultra-light-gray},
+    backgroundcolor=\color{ghostly-white},
+    literate=
+      {<}{{{\color{magenta}{<}}}}{1}
+      {>}{{{\color{magenta}{>}}}}{1}
+      {/}{{{\color{ochre}{/}}}}{1}
   }}{}
-\surroundwithmdframed[style=code, frametitle={Código XML}]{codeXML}
+%\surroundwithmdframed[style=code, frametitle={Código XML}]{codeXML}
 
 \lstnewenvironment{shellBash} {%
 \lstset{language=Bash,basicstyle=\scriptsize\ttfamily,breaklines=true,%
@@ -240,7 +271,9 @@ font={\color{DarkOrchid}},
 
 \RequirePackage[dvipsnames]{xcolor}
 \definecolor{light-gray}{gray}{0.87}
+\definecolor{dark-gray}{gray}{0.17}
 \definecolor{ultra-light-gray}{HTML}{DDEEDD}
+\definecolor{ghostly-white}{HTML}{F8F8FF}
 \definecolor{cerulean}{rgb}{0 .48 .65}
 \definecolor{plum}{rgb}{0.2272 .2705 .5215}
 \definecolor{orange}{RGB}{255,127,0}
