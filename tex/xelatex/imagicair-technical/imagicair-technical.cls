@@ -292,7 +292,7 @@ font={\color{DarkOrchid}},
 \DraftwatermarkOptions{angle=0,vpos=0.03\paperheight, scale=0.4}
 
 
-\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage[dvipsnames,table]{xcolor}
 \definecolor{light-gray}{gray}{0.87}
 \definecolor{dark-gray}{gray}{0.17}
 \definecolor{ultra-light-gray}{HTML}{DDEEDD}
