@@ -414,6 +414,7 @@ breaklines=true
 \newcommand{\file}[1]{{\ttfamily{\colorbox{light-gray}{\color{ochre}{#1}}}}}
 \newcommand{\ruta}[1]{{\ttfamily{\colorbox{ultra-light-gray}{\color{purple}{#1}}}}}
 \newcommand{\niceurl}[1]{{\ttfamily{\colorbox{ultra-light-gray}{\color{red}{\href{#1}{#1}}}}}}
+\newcommand{\niceHref}[2]{{\ttfamily{\colorbox{ultra-light-gray}{\color{red}{\href{#1}{#2}}}}}}
 \newcommand{\ip}[1]{{\ttfamily{\colorbox{ultra-light-gray}{\color{purple}{#1}}}}}
 \newcommand{\inlineCode}[1]{{\ttfamily{\colorbox{light-gray}{#1}}}}
 \newcommand{\cmd}[1]{{\ttfamily{\colorbox{black}{\color{ForestGreen}{#1}}}}}
