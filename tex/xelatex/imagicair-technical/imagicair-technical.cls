@@ -18,6 +18,20 @@
 % \RequirePackage{manfnt}
 \RequirePackage{fontawesome}
 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+
+\newcommand{\DeclareUnicodeCharacter}[2]{%
+    \begingroup\lccode`|=\string"#1\relax
+    \lowercase{\endgroup\newunicodechar{|}}{#2}%
+}
+
+\DeclareUnicodeCharacter{2190}{$\leftarrow$}
+\DeclareUnicodeCharacter{2191}{$\uparrow$}
+\DeclareUnicodeCharacter{2192}{$\rightarrow$}
+\DeclareUnicodeCharacter{2193}{$\downarrow$}
+
 \usepackage{anyfontsize}
 \usepackage{wasysym}
 \RequirePackage{fontspec}
@@ -93,6 +107,13 @@ backgroundcolor=black,
 everyline=true,
 font={\hack\tiny\color{ForestGreen!70}}
 }
+
+\makeatletter
+\lst@CCPutMacro
+    \lst@ProcessOther {"22}{\lst@ifupquote \textquotedbl
+                                     \else \char34\relax \fi}
+    \@empty\z@\@empty
+\makeatother
 
 \lstdefinelanguage{JSON}{
     keywords={null},
@@ -261,6 +282,28 @@ font={\hack\tiny\color{ForestGreen!70}}
     keywordstyle=\color{orange}}}{}
 \surroundwithmdframed[style=console, frametitle={Shell BAT}]{shellBat}
 
+\mdfdefinestyle{editor}{%
+rightline=true,
+innerleftmargin=2,
+innerrightmargin=2,
+frametitlerule=true,
+frametitlerulecolor=cerulean,
+frametitlebackgroundcolor=orange,
+frametitlefont={\bfseries\sffamily\color{white}\hspace{2em}},
+frametitlerulewidth=0.5pt,
+backgroundcolor=ghostly-white,
+font={\hack\small\color{black!75}}
+}
+
+\lstnewenvironment{txt} {%
+\lstset{basicstyle=\scriptsize\ttfamily,
+	breaklines=true,%
+	aboveskip=8pt,belowskip=5pt, %
+    upquote=true,
+	breaklines=true, % 
+    numbers=left, %
+	numberstyle={{\color{ochre} \ttfamily}}, %
+}}{}
 
 
 \mdfdefinestyle{alerta}{%
