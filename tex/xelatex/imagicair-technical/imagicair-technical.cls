@@ -105,7 +105,7 @@ frametitlerulewidth=0.5pt,
 frametitle=Shell,
 backgroundcolor=black,
 everyline=true,
-font={\hack\tiny\color{ForestGreen!70}}
+font={\hack\tiny\color{LimeGreen!95}}
 }
 
 \makeatletter
@@ -263,13 +263,13 @@ font={\hack\tiny\color{ForestGreen!70}}
 %\surroundwithmdframed[style=code, frametitle={Código XML}]{codeXML}
 
 \lstnewenvironment{shellBash} {%
-\lstset{language=Bash,basicstyle=\scriptsize\ttfamily,breaklines=true,%
+\lstset{basicstyle=\scriptsize\ttfamily,breaklines=true,%
 	aboveskip=8pt,belowskip=5pt, %
 	breaklines=true, %
 	escapeinside={\%*}{*)}, %
     numbers=left, %
 	numberstyle={{\color{ochre} \ttfamily}}, %
-    keywordstyle={{\color{plum} \emph}} 
+    keywordstyle={{\color{ferrari} \ttfamily}} 
   }}{}
 \surroundwithmdframed[style=console, frametitle={Shell BASH}]{shellBash}
 
@@ -342,6 +342,7 @@ font={\color{DarkOrchid}},
 \definecolor{ghostly-white}{HTML}{F8F8FF}
 \definecolor{cerulean}{rgb}{0 .48 .65}
 \definecolor{plum}{rgb}{0.2272 .2705 .5215}
+\definecolor{ferrari}{HTML}{FF2800}
 \definecolor{orange}{RGB}{255,127,0}
 \definecolor{ochre}{HTML}{CC7722}
 \RequirePackage[font=small,labelfont=bf,justification=centering]{caption}  % Required for specifying captions to tables and figures
