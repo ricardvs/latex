@@ -478,6 +478,7 @@ breaklines=true
 \newcommand{\sqlComment}[1]{{{\color{cerulean}\# {#1}} }}
 
 \newcommand{\imagicair}{{\sffamily \color{blue}{imagic}\color{ForestGreen}{air}}}
+\newcommand{\svnIP}{190.215.110.35}
 
 % emoticon
 \newcommand{\emoticonXD}{{\symbola \selectfont 😆}}
