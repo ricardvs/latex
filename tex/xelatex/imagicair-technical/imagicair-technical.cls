@@ -146,6 +146,27 @@ font={\hack\tiny\color{LimeGreen!95}}
       {\"}{{{\color{plum}{"}}}}{1}
 }
 
+\lstdefinelanguage{yaml}{
+    basicstyle=\color{blue}\footnotesize,
+    rulecolor=\color{black},
+    string=[s]{'}{'},
+    stringstyle=\color{blue},
+    comment=[l]{\#},
+    commentstyle=\color{black},
+    %morecomment=[l]{-},
+    showstringspaces=true,
+	frame=lines,
+	showlines=false,
+	keepspaces=true,
+	breaklines=true,
+	morestring=[b]',
+	morestring=[b]",
+    literate=
+      {:}{{{\color{magenta}{:}}}}{1}
+      {,}{{{\color{magenta}{,}}}}{1}
+}
+
+
 \lstnewenvironment{codeJSON} {%
 \lstset{language=JSON
     }}{}
@@ -261,6 +282,33 @@ font={\hack\tiny\color{LimeGreen!95}}
       {=}{{{\color{magenta}{=}}}}{1}
   }}{}
 %\surroundwithmdframed[style=code, frametitle={Código XML}]{codeXML}
+
+\lstnewenvironment{codeYAML} {%
+\lstset{language=yaml,basicstyle=\scriptsize\ttfamily,breaklines=true,%
+	aboveskip=5pt,belowskip=5pt,%
+	breaklines=true, % 
+    frame=lines,
+    numbers=left, %
+	numberstyle={{\color{ochre} \ttfamily}}, 
+    keywordstyle=\color{cerulean}, 
+    commentstyle=\color{gray},
+    rulecolor=\color{black},
+    fillcolor=\color{ultra-light-gray},
+    keepspaces=true,
+    backgroundcolor=\color{ghostly-white},
+    literate=
+      {<}{{{\color{magenta}{<}}}}{1}
+      {>}{{{\color{magenta}{>}}}}{1}
+      {\"}{{{\color{magenta}{"}}}}{1}
+      {[}{{{\color{magenta}{[}}}}{1}
+      {]}{{{\color{magenta}{]}}}}{1}
+      {=}{{{\color{magenta}{=}}}}{1}
+      {:}{{{\color{magenta}{:}}}}{1}
+      {:/}{{{\color{black}{:/}}}}{1}
+  }}{}
+%\surroundwithmdframed[style=code, frametitle={Código YAML}]{codeYAML}
+
+
 
 \lstnewenvironment{shellBash} {%
 \lstset{basicstyle=\scriptsize\ttfamily,breaklines=true,%
