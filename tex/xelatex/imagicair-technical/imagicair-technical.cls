@@ -18,6 +18,11 @@
 % \RequirePackage{manfnt}
 \RequirePackage{fontawesome}
 
+\usepackage{newfloat}
+\DeclareFloatingEnvironment[name={Código}]{codefigure}
+\DeclareFloatingEnvironment[name={Consola}]{consolefigure}
+\usepackage{capt-of}
+
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{newunicodechar}
@@ -92,7 +97,7 @@ frametitlerule=true,frametitlerulecolor=cerulean,
 frametitlebackgroundcolor=orange,
 frametitlefont={\bfseries\sffamily\color{white}\hspace{2em}},
 frametitlerulewidth=0.5pt,
-backgroundcolor=black,
+backgroundcolor=ghostly-white,
 font={\hack\small\color{gray!70}}
 }
 
@@ -163,6 +168,30 @@ font={\hack\tiny\color{LimeGreen!95}}
 	morestring=[b]",
     literate=
       {:}{{{\color{magenta}{:}}}}{1}
+      {,}{{{\color{magenta}{,}}}}{1}
+}
+
+\lstdefinelanguage{bash}{
+    basicstyle=\color{blue}\footnotesize,
+    rulecolor=\color{black},
+    keywords=[2]{alias, apropos, apt, apt\-get, aptitude, aspell, at, awk, basename, base32, base64, bash, bc, bg, bind, break, builtin, bzip2, cal, caller, case, cat, cd, cfdisk, chattr, chgrp, chmod, chown, chpasswd, chroot, chkconfig, cksum, clear, clear_console, cmp, comm, command, continue, cp, cpio, cron, crontab, csplit, curl, cut, date, dc, dd, ddrescue, declare, df, diff, diff3, dig, dir, dircolors, dirname, dirs, dos2unix, dmesg, dpkg, du, echo, egrep, eject, elinks, enable, env, ethtool, eval, exec, exit, expand, export, expr, false, fdformat, fdisk, fg, fgrep, file, find, fmt, fold, for, format, free, fsck, ftp, function, fuser, gawk, getopts, getfacl, grep, groupadd, groupdel, groupmod, groups, gzip, hash, head, help, history, hostname, htop, iconv, id, if, ifconfig, ifdown, ifup, import, install, iostat, ip, jobs, join, kill, killall, klist, less, let, link, ln, local, locate, logname, logout, look, lpc, lpr, lprint, lprintd, lprintq, lprm, lsattr, lsblk, ls, lsof, lspci, make, man, mapfile, md5sum, mkdir, mkfifo, mkfile, mkisofs, mknod, mktemp, more, most, mount, mtools, mtr, mv, mmv, nc, netstat, nft, nice, nl, nohup, notify-send, nslookup, open, op, passwd, paste, pathchk, Perf, ping, pgrep, pkill, popd, pr, printcap, printenv, printf, ps, pushd, pv, pwd, quota, quotacheck, ram, rar, rcp, read, readarray, readonly, reboot, rename, renice, remsync, return, rev, rm, rmdir, rsync, screen, scp, sdiff, sed, select, seq, set, setfacl, sftp, sha256sum, shift, shopt, shuf, shutdown, sleep, slocate, sort, source, split, ss, ssh, stat, strace, su, sudo, sum, suspend, sync, tabs, tail, tar, tee, test, time, timeout, times, tmux, touch, top, tput, traceroute, trap, tr, true, tsort, tty, type, ulimit, umask, umount, unalias, uname, unexpand, uniq, units, unix2dos, unrar, unset, unshar, until, uptime, useradd, userdel, usermod, users, uuencode, uudecode, v, vdir, vi, vim, vmstat, w, wait, watch, wc, whereis, which, while, who, whoami, wget, write, xargs, xdg-open, xxd, xz, yes, zip},
+    keywordstyle=\color{ochre},
+    string=[s]{'}{'},
+    stringstyle=\color{green},
+    comment=[l]{\#},
+    commentstyle=\color{gray},
+    %morecomment=[l]{-},
+    showstringspaces=true,
+	frame=lines,
+	showlines=false,
+	keepspaces=true,
+	breaklines=true,
+	morestring=[b]',
+	morestring=[b]",
+    literate=
+      {:}{{{\color{magenta}{:}}}}{1}
+      {.}{{{\color{magenta}{.}}}}{1}
+      {!!}{{{\color{magenta}{!!}}}}{1}
       {,}{{{\color{magenta}{,}}}}{1}
 }
 
@@ -311,13 +340,13 @@ font={\hack\tiny\color{LimeGreen!95}}
 
 
 \lstnewenvironment{shellBash} {%
-\lstset{basicstyle=\scriptsize\ttfamily,breaklines=true,%
+\lstset{language=bash,basicstyle=\scriptsize\ttfamily,breaklines=true,%
 	aboveskip=8pt,belowskip=5pt, %
 	breaklines=true, %
 	escapeinside={\%*}{*)}, %
     numbers=left, %
 	numberstyle={{\color{ochre} \ttfamily}}, %
-    keywordstyle={{\color{ferrari} \ttfamily}} 
+    keywordstyle={{\color{green} \ttfamily}} 
   }}{}
 \surroundwithmdframed[style=console, frametitle={Shell BASH}]{shellBash}
 
