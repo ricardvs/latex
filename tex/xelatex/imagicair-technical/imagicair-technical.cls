@@ -20,7 +20,14 @@
 
 \usepackage{newfloat}
 \DeclareFloatingEnvironment[name={Código}]{codefigure}
-\DeclareFloatingEnvironment[name={Consola}]{consolefigure}
+\DeclareFloatingEnvironment[name={JSON}]{jsonfigure}
+\DeclareFloatingEnvironment[name={XML}]{xmlfigure}
+\DeclareFloatingEnvironment[name={YAML}]{yamlfigure}
+\DeclareFloatingEnvironment[name={Java}]{javafigure}
+\DeclareFloatingEnvironment[name={TypeScript}]{typescriptfigure}
+\DeclareFloatingEnvironment[name={SQL}]{sqlfigure}
+\DeclareFloatingEnvironment[name={BASH}]{consolefigure}
+\DeclareFloatingEnvironment[name={BAT}]{batfigure}
 \usepackage{capt-of}
 
 \usepackage[T1]{fontenc}
@@ -103,11 +110,14 @@ font={\hack\small\color{gray!70}}
 
 \mdfdefinestyle{console}{%
 rightline=true,innerleftmargin=2,innerrightmargin=2,
-frametitlerule=true,frametitlerulecolor=cerulean,
-frametitlebackgroundcolor=orange,
-frametitlefont={\bfseries\sffamily\color{white}\hspace{2em}},
-frametitlerulewidth=0.5pt,
-frametitle=Shell,
+innertopmargin=-0.5em,
+skipabove=2em,
+frametitlerule=false,
+%frametitlerulecolor=cerulean,
+%frametitlebackgroundcolor=orange,
+%frametitlefont={\bfseries\sffamily\color{white}\hspace{2em}},
+%frametitlerulewidth=0.5pt,
+%frametitle=Shell,
 backgroundcolor=black,
 everyline=true,
 font={\hack\tiny\color{LimeGreen!95}}
@@ -148,7 +158,8 @@ font={\hack\tiny\color{LimeGreen!95}}
       {\}}{{{\color{ochre}{\}}}}}{1}
       {[}{{{\color{ochre}{[}}}}{1}
       {]}{{{\color{ochre}{]}}}}{1}
-      {\"}{{{\color{plum}{"}}}}{1}
+      {\"}{{{\color{magenta}{\textquotedbl}}}}{1}
+      {\'}{{{\color{magenta}{\textquotesingle}}}}{1}
 }
 
 \lstdefinelanguage{yaml}{
@@ -169,10 +180,12 @@ font={\hack\tiny\color{LimeGreen!95}}
     literate=
       {:}{{{\color{magenta}{:}}}}{1}
       {,}{{{\color{magenta}{,}}}}{1}
+      {\"}{{{\color{magenta}{\textquotedbl}}}}{1}
+      {\'}{{{\color{magenta}{\textquotesingle}}}}{1}
 }
 
 \lstdefinelanguage{bash}{
-    basicstyle=\color{blue}\footnotesize,
+    basicstyle=\color{LimeGreen!95}\footnotesize,
     rulecolor=\color{black},
     keywords=[2]{alias, apropos, apt, apt\-get, aptitude, aspell, at, awk, basename, base32, base64, bash, bc, bg, bind, break, builtin, bzip2, cal, caller, case, cat, cd, cfdisk, chattr, chgrp, chmod, chown, chpasswd, chroot, chkconfig, cksum, clear, clear_console, cmp, comm, command, continue, cp, cpio, cron, crontab, csplit, curl, cut, date, dc, dd, ddrescue, declare, df, diff, diff3, dig, dir, dircolors, dirname, dirs, dos2unix, dmesg, dpkg, du, echo, egrep, eject, elinks, enable, env, ethtool, eval, exec, exit, expand, export, expr, false, fdformat, fdisk, fg, fgrep, file, find, fmt, fold, for, format, free, fsck, ftp, function, fuser, gawk, getopts, getfacl, grep, groupadd, groupdel, groupmod, groups, gzip, hash, head, help, history, hostname, htop, iconv, id, if, ifconfig, ifdown, ifup, import, install, iostat, ip, jobs, join, kill, killall, klist, less, let, link, ln, local, locate, logname, logout, look, lpc, lpr, lprint, lprintd, lprintq, lprm, lsattr, lsblk, ls, lsof, lspci, make, man, mapfile, md5sum, mkdir, mkfifo, mkfile, mkisofs, mknod, mktemp, more, most, mount, mtools, mtr, mv, mmv, nc, netstat, nft, nice, nl, nohup, notify-send, nslookup, open, op, passwd, paste, pathchk, Perf, ping, pgrep, pkill, popd, pr, printcap, printenv, printf, ps, pushd, pv, pwd, quota, quotacheck, ram, rar, rcp, read, readarray, readonly, reboot, rename, renice, remsync, return, rev, rm, rmdir, rsync, screen, scp, sdiff, sed, select, seq, set, setfacl, sftp, sha256sum, shift, shopt, shuf, shutdown, sleep, slocate, sort, source, split, ss, ssh, stat, strace, su, sudo, sum, suspend, sync, tabs, tail, tar, tee, test, time, timeout, times, tmux, touch, top, tput, traceroute, trap, tr, true, tsort, tty, type, ulimit, umask, umount, unalias, uname, unexpand, uniq, units, unix2dos, unrar, unset, unshar, until, uptime, useradd, userdel, usermod, users, uuencode, uudecode, v, vdir, vi, vim, vmstat, w, wait, watch, wc, whereis, which, while, who, whoami, wget, write, xargs, xdg-open, xxd, xz, yes, zip},
     keywordstyle=\color{ochre},
@@ -186,6 +199,8 @@ font={\hack\tiny\color{LimeGreen!95}}
 	showlines=false,
 	keepspaces=true,
 	breaklines=true,
+    %fillcolor=\color{black},
+    backgroundcolor=\color{black},
 	morestring=[b]',
 	morestring=[b]",
     literate=
@@ -193,16 +208,23 @@ font={\hack\tiny\color{LimeGreen!95}}
       {.}{{{\color{magenta}{.}}}}{1}
       {!!}{{{\color{magenta}{!!}}}}{1}
       {,}{{{\color{magenta}{,}}}}{1}
+      {\"}{{{\color{magenta}{\textquotedbl}}}}{1}
+      {\'}{{{\color{magenta}{\textquotesingle}}}}{1}
 }
 
 
-\lstnewenvironment{codeJSON} {%
-\lstset{language=JSON
+\lstnewenvironment{codeJSON}[3][\scriptsize]{%
+\captionof{jsonfigure}{#2}
+\label{#3}
+\lstset{language=JSON,basicstyle=#1\hack,
+        breaklines=true
     }}{}
 
 
-\lstnewenvironment{codeJava} {%
-\lstset{language=Java,basicstyle=\scriptsize\ttfamily,breaklines=true,%
+\lstnewenvironment{codeJava}[3][\scriptsize] {%
+\captionof{javafigure}{#2}
+\label{#3}
+\lstset{language=Java,basicstyle=#1\ttfamily,breaklines=true,%
 	aboveskip=12pt,belowskip=12pt,xleftmargin=5pt, %
 	numbers=left, numberstyle={{\color{ochre} \ttfamily}}, %
     keywordstyle=\color{magenta},
@@ -219,6 +241,7 @@ font={\hack\tiny\color{LimeGreen!95}}
     backgroundcolor=\color{ghostly-white},
     literate=
         {@}{{{\color{plum}{@}}}}{1},
+        {\"}{{{\color{magenta}{\textquotedbl}}}}{1}
     } }{}
 %\surroundwithmdframed[style=code, frametitle={Ejemplo Java}]{codeJava}
 
@@ -256,10 +279,15 @@ font={\hack\tiny\color{LimeGreen!95}}
       {<}{{{\color{cerulean}{<}}}}{1}
       {;}{{{\color{cerulean}{;}}}}{1}
       {=}{{{\color{cerulean}{=}}}}{1}
+      {\"}{{{\color{magenta}{\textquotedbl}}}}{1}
+      {\'}{{{\color{magenta}{\textquotesingle}}}}{1}
 }
 
-\lstnewenvironment{codeTypeScript} {%
+\lstnewenvironment{codeTypeScript}[3][\scriptsize] {%
+\captionof{typescriptfigure}{#2}
+\label{#3}
 \lstset{language=TypeScript,
+    basicstyle=\color{dark-gray}#1\ttfamily
     breaklines=true,%
 	aboveskip=12pt,
     belowskip=12pt,
@@ -267,11 +295,31 @@ font={\hack\tiny\color{LimeGreen!95}}
     }}{}
 %\surroundwithmdframed[style=code, frametitle={Ejemplo TypeScript}]{codeTypeScript}
 
-
-
-\lstnewenvironment{codeMSSQL} {%
+\lstnewenvironment{codeSQL}[3][\scriptsize] {%
+\captionof{sqlfigure}{#2}
+\label{#3}
 \lstset{language=SQL,
-    basicstyle=\scriptsize\ttfamily,
+    basicstyle=#1\hack,
+    breaklines=true,%
+	breaklines=true, % 
+    numbers=left, %
+	numberstyle={{\color{ochre} \ttfamily}}, %
+    keywordstyle=\color{cerulean}, %
+    commentstyle=\color{orange},
+    frame=lines,
+    rulecolor=\color{black},
+    fillcolor=\color{ultra-light-gray},
+    backgroundcolor=\color{ghostly-white},
+    literate = 
+      {\'}{{{\color{magenta}{\textquotesingle}}}}{1}
+  }}{}
+
+
+\lstnewenvironment{codeMSSQL}[3][\scriptsize] {%
+\captionof{sqlfigure}{#2}
+\label{#3}
+\lstset{language=SQL,
+    basicstyle=#1\ttfamily,
     breaklines=true,%
 	aboveskip=5pt,belowskip=5pt,%
 	breaklines=true, % 
@@ -283,12 +331,16 @@ font={\hack\tiny\color{LimeGreen!95}}
     frame=lines,
     rulecolor=\color{black},
     fillcolor=\color{ultra-light-gray},
-    backgroundcolor=\color{ghostly-white}
+    backgroundcolor=\color{ghostly-white},
+    literate = 
+      {\'}{{{\color{magenta}{\textquotesingle}}}}{1}
   }}{}
 %\surroundwithmdframed[style=code, frametitle={Consola SQL}]{codeMSSQL}
 
-\lstnewenvironment{codeXML} {%
-\lstset{language=XML,basicstyle=\scriptsize\ttfamily,breaklines=true,%
+\lstnewenvironment{codeXML}[3][\scriptsize]{%
+\captionof{xmlfigure}{#2}
+\label{#3}
+\lstset{language=XML,basicstyle=#1\ttfamily,breaklines=true,%
 	aboveskip=5pt,belowskip=5pt,%
 	breaklines=true, % 
     morekeywords={for, go, login, to, use, user, with}, 
@@ -305,15 +357,17 @@ font={\hack\tiny\color{LimeGreen!95}}
       {<}{{{\color{magenta}{<}}}}{1}
       {>}{{{\color{magenta}{>}}}}{1}
       {/}{{{\color{plum}{/}}}}{1}
-      {\"}{{{\color{magenta}{"}}}}{1}
+      {\"}{{{\color{magenta}{\textquotedbl}}}}{1}
       {[}{{{\color{magenta}{[}}}}{1}
       {]}{{{\color{magenta}{]}}}}{1}
       {=}{{{\color{magenta}{=}}}}{1}
   }}{}
 %\surroundwithmdframed[style=code, frametitle={Código XML}]{codeXML}
 
-\lstnewenvironment{codeYAML} {%
-\lstset{language=yaml,basicstyle=\scriptsize\ttfamily,breaklines=true,%
+\lstnewenvironment{codeYAML}[3][\scriptsize] {%
+\captionof{yamlfigure}{#2}
+\label{#3}
+\lstset{language=yaml,basicstyle=#1\ttfamily,breaklines=true,%
 	aboveskip=5pt,belowskip=5pt,%
 	breaklines=true, % 
     frame=lines,
@@ -328,7 +382,7 @@ font={\hack\tiny\color{LimeGreen!95}}
     literate=
       {<}{{{\color{magenta}{<}}}}{1}
       {>}{{{\color{magenta}{>}}}}{1}
-      {\"}{{{\color{magenta}{"}}}}{1}
+      {\"}{{{\color{magenta}{\textquotedbl}}}}{1}
       {[}{{{\color{magenta}{[}}}}{1}
       {]}{{{\color{magenta}{]}}}}{1}
       {=}{{{\color{magenta}{=}}}}{1}
@@ -339,24 +393,35 @@ font={\hack\tiny\color{LimeGreen!95}}
 
 
 
-\lstnewenvironment{shellBash} {%
-\lstset{language=bash,basicstyle=\scriptsize\ttfamily,breaklines=true,%
-	aboveskip=8pt,belowskip=5pt, %
+\lstnewenvironment{shellBash}[3][\scriptsize] {%
+\captionof{consolefigure}{#2}
+\label{#3}
+\lstset{language=bash,basicstyle=#1\ttfamily\color{LimeGreen!95},
+	aboveskip=8pt,belowskip=5pt, 
+    frame=tlbr,framesep=2pt,framerule=0pt,
 	breaklines=true, %
 	escapeinside={\%*}{*)}, %
     numbers=left, %
 	numberstyle={{\color{ochre} \ttfamily}}, %
-    keywordstyle={{\color{green} \ttfamily}} 
+    keywordstyle={{\color{green} \ttfamily}} ,
+    literate = 
+      {\"}{{{\color{magenta}{\textquotedbl}}}}{1}
   }}{}
-\surroundwithmdframed[style=console, frametitle={Shell BASH}]{shellBash}
+\surroundwithmdframed[style=console]{shellBash}
 
-\lstnewenvironment{shellBat} {%
-\lstset{language=sh,basicstyle=\scriptsize\ttfamily,breaklines=true,%
+\lstnewenvironment{shellBat}[3][\scriptsize] {%
+\captionof{batfigure}{#2}
+\label{#3}
+\lstset{language=sh,basicstyle=#1\ttfamily\color{LimeGreen!95},
 	aboveskip=5pt,belowskip=5pt, %
+    frame=tlbr,framesep=2pt,framerule=0pt,
 	breaklines=true, % 
     numbers=left, %
 	numberstyle={{\color{ochre} \ttfamily}}, %
-    keywordstyle=\color{orange}}}{}
+    keywordstyle=\color{orange},
+    literate = 
+      {\"}{{{\color{magenta}{\textquotedbl}}}}{1}
+    }}{}
 \surroundwithmdframed[style=console, frametitle={Shell BAT}]{shellBat}
 
 \mdfdefinestyle{editor}{%
@@ -372,14 +437,18 @@ backgroundcolor=ghostly-white,
 font={\hack\small\color{black!75}}
 }
 
-\lstnewenvironment{txt} {%
-\lstset{basicstyle=\scriptsize\ttfamily,
+\lstnewenvironment{txt}[3][\scriptsize] {%
+\captionof{jsonfigure}{#2}
+\label{#3}
+\lstset{basicstyle=#1\ttfamily,
 	breaklines=true,%
 	aboveskip=8pt,belowskip=5pt, %
     upquote=true,
 	breaklines=true, % 
     numbers=left, %
 	numberstyle={{\color{ochre} \ttfamily}}, %
+    literate = 
+      {\"}{{{\color{magenta}{\textquotedbl}}}}{1}
 }}{}
 
 
