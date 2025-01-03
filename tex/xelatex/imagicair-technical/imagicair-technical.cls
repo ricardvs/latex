@@ -28,6 +28,8 @@
 \DeclareFloatingEnvironment[name={SQL}]{sqlfigure}
 \DeclareFloatingEnvironment[name={BASH}]{consolefigure}
 \DeclareFloatingEnvironment[name={BAT}]{batfigure}
+\DeclareFloatingEnvironment[name={Properties}]{propertiesfigure}
+\DeclareFloatingEnvironment[name={Texto}]{txtfigure}
 \usepackage{capt-of}
 
 \usepackage[T1]{fontenc}
@@ -437,16 +439,18 @@ backgroundcolor=ghostly-white,
 font={\hack\small\color{black!75}}
 }
 
-\lstnewenvironment{txt}[3][\scriptsize] {%
-\captionof{jsonfigure}{#2}
-\label{#3}
+\lstnewenvironment{properties}[4][\scriptsize] {%
+\captionof{#2}{#3}
+\label{#4}
 \lstset{basicstyle=#1\ttfamily,
 	breaklines=true,%
+    frame=tb,
+    backgroundcolor=\color{ghostly-white},
 	aboveskip=8pt,belowskip=5pt, %
     upquote=true,
 	breaklines=true, % 
     numbers=left, %
-	numberstyle={{\color{ochre} \ttfamily}}, %
+	numberstyle={{\color{ochre} \ttfamily}}, 
     literate = 
       {\"}{{{\color{magenta}{\textquotedbl}}}}{1}
 }}{}
