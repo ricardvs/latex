@@ -216,11 +216,12 @@ font={\hack\tiny\color{LimeGreen!95}}
 
 
 \lstnewenvironment{codeJSON}[3][\scriptsize]{%
+\minipage{\linewidth}
 \captionof{jsonfigure}{#2}
 \label{#3}
 \lstset{language=JSON,basicstyle=#1\hack,
         breaklines=true
-    }}{}
+    }}{\endminipage}
 
 
 \lstnewenvironment{codeJava}[3][\scriptsize] {%
@@ -493,6 +494,7 @@ font={\color{DarkOrchid}},
 \definecolor{cerulean}{rgb}{0 .48 .65}
 \definecolor{plum}{rgb}{0.2272 .2705 .5215}
 \definecolor{ferrari}{HTML}{FF2800}
+\definecolor{rust}{HTML}{8B4000}
 \definecolor{orange}{RGB}{255,127,0}
 \definecolor{ochre}{HTML}{CC7722}
 \RequirePackage[font=small,labelfont=bf,justification=centering]{caption}  % Required for specifying captions to tables and figures
@@ -597,10 +599,19 @@ breaklines=true
 }
 
 % given that we said footinclude=false, this should be safe
-\setlength{\footskip}{2\baselineskip}
+\setlength{\footskip}{8\baselineskip}
 
 \RequirePackage{dirtree}
 
+\usepackage{cellspace}
+\AtBeginEnvironment{tabular}{\rowcolors{1}{\ifnumequal{\rownum}{1}{ochre}{gray!15}}{white}{}}%
+\newcolumntype{L}{>{\ifnumequal{\rownum}{1}{\sffamily\bfseries\color{white}}}Sl}
+\newcolumntype{C}{>{\ifnumequal{\rownum}{1}{\sffamily\bfseries\color{white}}}Sc}
+\newcolumntype{R}{>{\ifnumequal{\rownum}{1}{\sffamily\bfseries\color{white}}}Sr}
+\newcolumntype{P}[1]{>{\ifnumequal{\rownum}{1}{\sffamily\bfseries\vskip -6pt\color{white}}}p{#1}}
+%\newcolumntype{P}[1]{>{\ifnumequal{\rownum}{1}{\sffamily\bfseries}}p{#1}}{
+\setlength{\cellspacetoplimit}{5pt}
+\setlength{\cellspacebottomlimit}{5pt}
 
 \newdateformat{specialdate}{\twodigit{\THEDAY}-\shortmonthname[\THEMONTH]-\THEYEAR}
 \newcommand*{\fullref}[1]{\hyperref[{#1}]{\autoref*{#1} \nameref*{#1}}} % One single link
@@ -613,7 +624,9 @@ breaklines=true
 \newcommand{\inlineCode}[1]{{\ttfamily{\colorbox{light-gray}{#1}}}}
 \newcommand{\cmd}[1]{{\ttfamily{\colorbox{black}{\color{ForestGreen}{#1}}}}}
 \newcommand{\module}[1]{{\ttfamily{\colorbox{RoyalPurple}{\color{ultra-light-gray}{#1}}}}}
+\newcommand{\datatype}[1]{{\ttfamily{\color{ferrari}{#1}}}}
 \newcommand{\constant}[1]{{\ttfamily{\color{Sepia}{#1}}}}
+\newcommand{\field}[1]{{\ttfamily{\color{rust}{#1}}}}
 \newcommand{\variable}[1]{{\ttfamily{\color{WildStrawberry}{#1}}}}
 \newcommand{\appLabel}[1]{{\ttfamily{\color{DarkOrchid}{#1}}}}
 \newcommand{\appValue}[1]{{\ttfamily{\color{Dandelion}{#1}}}}
@@ -628,7 +641,7 @@ breaklines=true
 \newcommand{\sqlComment}[1]{{{\color{cerulean}\# {#1}} }}
 
 \newcommand{\imagicair}{{\sffamily \color{blue}{imagic}\color{ForestGreen}{air}}}
-\newcommand{\svnIP}{190.215.110.35}
+\newcommand{\svnIP}{74.235.228.204}
 
 % emoticon
 \newcommand{\emoticonXD}{{\symbola \selectfont 😆}}
