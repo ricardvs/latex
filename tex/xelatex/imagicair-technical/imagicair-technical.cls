@@ -494,9 +494,18 @@ font={\color{DarkOrchid}},
 \definecolor{cerulean}{rgb}{0 .48 .65}
 \definecolor{plum}{rgb}{0.2272 .2705 .5215}
 \definecolor{ferrari}{HTML}{FF2800}
+\definecolor{dark-burgundy}{HTML}{800020}
+\definecolor{bright-orange}{HTML}{FF5F1F}
+\definecolor{mahogany}{HTML}{C04000}
+\definecolor{midnight}{HTML}{2B1B17}
+\definecolor{crimson-red}{HTML}{900000}
 \definecolor{rust}{HTML}{8B4000}
 \definecolor{orange}{RGB}{255,127,0}
 \definecolor{ochre}{HTML}{CC7722}
+\definecolor{purple-jam}{HTML}{6A287E}
+\definecolor{dark-slate-blue}{HTML}{483D8B}
+\definecolor{cobalt-blue}{HTML}{0020C2}
+\definecolor{light-mint-green}{HTML}{C3E5D3}
 \RequirePackage[font=small,labelfont=bf,justification=centering]{caption}  % Required for specifying captions to tables and figures
 \captionsetup{labelsep = colon}
 
@@ -621,21 +630,27 @@ breaklines=true
 \newcommand{\niceurl}[1]{{\ttfamily{\colorbox{ultra-light-gray}{\color{red}{\href{#1}{#1}}}}}}
 \newcommand{\niceHref}[2]{{\ttfamily{\colorbox{ultra-light-gray}{\color{red}{\href{#1}{#2}}}}}}
 \newcommand{\ip}[1]{{\ttfamily{\colorbox{ultra-light-gray}{\color{purple}{#1}}}}}
-\newcommand{\inlineCode}[1]{{\ttfamily{\colorbox{light-gray}{#1}}}}
 \newcommand{\cmd}[1]{{\ttfamily{\colorbox{black}{\color{ForestGreen}{#1}}}}}
-\newcommand{\module}[1]{{\ttfamily{\colorbox{RoyalPurple}{\color{ultra-light-gray}{#1}}}}}
-\newcommand{\datatype}[1]{{\ttfamily{\color{ferrari}{#1}}}}
-\newcommand{\constant}[1]{{\ttfamily{\color{Sepia}{#1}}}}
-\newcommand{\field}[1]{{\ttfamily{\color{rust}{#1}}}}
-\newcommand{\variable}[1]{{\ttfamily{\color{WildStrawberry}{#1}}}}
+\newcommand{\module}[1]{{\ttfamily{\colorbox{light-mint-green}{\color{RoyalPurple}{#1}}}}}
+
+\newcommand{\inlineCode}[1]{{\scriptsize\hack{\colorbox{light-gray}{#1}}}}
+\newcommand{\datatype}[1]{{\scriptsize\hack{\color{ferrari}{#1}}}}
+\newcommand{\constant}[1]{{\scriptsize\hack{\color{Sepia}{#1}}}}
+\newcommand{\field}[1]{{\scriptsize\hack{\color{rust}{#1}}}}
+\newcommand{\variable}[1]{{\scriptsize\hack{\color{WildStrawberry}{#1}}}}
+\newcommand{\method}[1]{{\scriptsize\hack{\color{cobalt-blue}{#1}}}}
+\newcommand{\class}[1]{{\scriptsize\hack{\color{bright-orange}{#1}}}}
+\newcommand{\dbtable}[2]{{\scriptsize\hack{\color{purple-jam}{#1}.\color{dark-slate-blue}{#2}}}}
+\newcommand{\storedProcedure}[2]{{\scriptsize\hack{\color{gray}{#1}.\color{mahogany}{#2}}}}
+
 \newcommand{\appLabel}[1]{{\ttfamily{\color{DarkOrchid}{#1}}}}
 \newcommand{\appValue}[1]{{\ttfamily{\color{Dandelion}{#1}}}}
-\newcommand{\sw}[1]{{\smaller\segoe \selectfont \textbf{\color{CadetBlue}{#1}}}}
+\newcommand{\sw}[1]{{\smaller\lucida \selectfont \color{rust}{#1}}}
 \newcommand{\so}[1]{{\small\sffamily \selectfont \color{Violet}{#1}}}
 \newcommand{\option}[1]{{\ttfamily{\emph{\color{Maroon}{#1}}}}}
 \newcommand{\app}[1]{\emph{\color{MidnightBlue}{#1}}}
 \newcommand{\mainApp}[1]{{\smaller\segoeib \selectfont \textbf{\color{MidnightBlue}{#1}}}}
-\newcommand{\enterprise}[1]{{\fontsize{8}{10}\lucida \emph{\color{Bittersweet}{#1}}}}
+\newcommand{\enterprise}[1]{{\fontsize{8}{10}\segoe \textit{\color{Bittersweet}{#1}}}}
 \newcommand{\prompt}{{{\color{cerulean}{machine:\char"0024} }}}
 \newcommand{\sprompt}[1]{{{\color{cerulean}{machine:\char"0024}}  \mbox{{#1}} \Return\\}}
 \newcommand{\sqlComment}[1]{{{\color{cerulean}\# {#1}} }}
