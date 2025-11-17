@@ -8,6 +8,17 @@
                footinclude=false,%
                paper=210mm:11in]{scrbook}
 
+\usepackage{geometry}
+\geometry{
+    a4paper,
+    top=30mm,
+    bottom=25mm,
+    left=20mm,
+    right=20mm,
+    headheight=35mm, % Adjust this value as needed for your content
+    headsep=15mm,    % Adjust the space between the header and body text
+}
+
 % Symbols
 % \RequirePackage{pifont}
 % \RequirePackage{bbding}
@@ -587,21 +598,26 @@ breaklines=true
 %\renewcommand{\chaptermark}[1]{\markboth{\textit{\chaptername\ \thechapter.} #1}{}}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
-\fancyhf{}
-%\fancyhead[LE,RO]{\nouppercase{\thepage}}
-\fancyhead[RE,LO]{\fontsize{8}{10}  \lucida \selectfont \nouppercase{\rightmark}}
-\fancyhead[RO]{\fontsize{8}{10} \lucida \selectfont \leftmark{} \hspace*{1cm}\includegraphics[width=1.5cm]{imagicair.eps}}
-\fancyhead[LE]{\includegraphics[width=1.5cm]{imagicair.eps} \hspace*{1cm} \fontsize{8}{10} \lucida \selectfont \leftmark{} }
-%\fancyhead[RE]{\lucida \nouppercase{\leftmark}}
+\renewcommand{\headrulewidth}{0.1pt} % Remove the default header line
+\fancyhead[RE,LO]{
+        \hspace*{-2cm}
+        {\includegraphics[width=1.3\linewidth,height=40mm]{header-baloons.eps}}
+        {\fontsize{8}{10} \lucida \selectfont \nouppercase{\rightmark}}
+}
+\fancyhead[LE,RO]{
+        \fontsize{8}{10} \lucida \selectfont \leftmark{}
+ }
 
-%\rhead{\fontsize{8}{10} \lucida \selectfont \leftmark{} \hspace*{1cm}\includegraphics[width=1.5cm]{imagicair.eps}}
 \cfoot{\fontsize{8}{10} \lucida \nouppercase{\thepage}}
-\setlength{\headheight}{21.8pt}
 
 \fancypagestyle{plain}{% 
+\renewcommand{\headrulewidth}{0pt} % Remove the default header line
 \lhead{} 
 \chead{}
-\rhead{\hspace*{1cm}\includegraphics[width=1.5cm]{imagicair.eps}}
+\rhead{
+        \hspace*{-2cm}
+        {\includegraphics[width=1.3\linewidth,height=40mm]{header-baloons.eps}}
+}
 \lfoot{}
 \cfoot{\fontsize{8}{10} \lucida \nouppercase{\thepage}}
 \rfoot{}
