@@ -515,6 +515,7 @@ font={\color{DarkOrchid}},
 \definecolor{ochre}{HTML}{CC7722}
 \definecolor{purple-jam}{HTML}{6A287E}
 \definecolor{dark-slate-blue}{HTML}{483D8B}
+\definecolor{imagicair-text-blue}{HTML}{0071b1}
 \definecolor{cobalt-blue}{HTML}{0020C2}
 \definecolor{light-mint-green}{HTML}{C3E5D3}
 \RequirePackage[font=small,labelfont=bf,justification=centering]{caption}  % Required for specifying captions to tables and figures
@@ -678,8 +679,89 @@ breaklines=true
 \newcommand{\emoticonXD}{{\symbola \selectfont 😆}}
 \newcommand{\emoticonWink}{{\symbola \selectfont {\colorbox{yellow}{\char"1F609}}}}
 
-
 \RequirePackage{imagicair-technical-sw}
 
-\author[1]{Ricardo Araos Rosales}
-\affil[1]{\imagicair{} consultores}
+\usepackage{titling}
+\pretitle{\begin{center}\fontsize{42bp}{42bp}\color{imagicair-text-blue}\segoe \textbf}
+\posttitle{\par\end{center}}
+\preauthor{\begin{center}\color{imagicair-text-blue}\sffamily}
+\postauthor{\end{center}}
+\predate{\begin{center}\color{imagicair-text-blue}\segoe}
+\postdate{\end{center}}
+
+\author{Ricardo Araos Rosales}
+\affil[1]{\imagicair{} \sffamily consultores}
+
+\usepackage{titlesec}
+
+\titleformat
+{\chapter} % command
+[block] % shape
+%{\bfseries\Large\itshape} % format
+{\fontsize{22bp}{28bp}\segoe\color{imagicair-text-blue}} % format
+{\thechapter} % label
+{0.5ex} % sep
+{
+    \rule{\textwidth}{1pt}
+    \vspace{1ex}
+    \centering
+    \textbf
+} % before-code
+[
+\vspace{-0.5ex}%
+\rule{\textwidth}{0.3pt}
+] % after-code
+
+
+%\titleformat{\section}[wrap]
+\titleformat{\section}[block]
+{\fontsize{18bp}{24bp}\segoe\color{imagicair-text-blue}} % format
+{\thesection.}{0.5em}{\textbf}
+
+\titlespacing{\section}{0pc}{1.5ex plus .1ex minus .2ex}{1pc}
+
+
+
+\titleformat{\subsection}[block]
+{\fontsize{16bp}{18bp}\segoeib\color{imagicair-text-blue}} % format
+{\thesubsection.}{0.5em}{}
+
+\titlespacing{\subsection}{0.5pc}{1.5ex plus .1ex minus .2ex}{1pc}
+
+
+
+\titleformat{\subsubsection}[block]
+{\fontsize{11bp}{18bp}\segoe\color{imagicair-text-blue}\textbf} % format
+{\thesubsubsection.}{0.5em}{}
+
+\titlespacing{\subsubsection}{0.5pc}{1.5ex plus .1ex minus .2ex}{1pc}
+
+\usepackage[shortlabels]{enumitem}
+%\[start=0,label={(\bfseries R\arabic*):}]
+
+
+\newlist{elegantitems}{enumerate}{3}
+
+\setlist[elegantitems, 1]
+{label={\segoe \bfseries \arabic{elegantitemsi}.}, %1., 2., 3., ...
+%font=\segoe,
+%before=\segoe \bfseries,
+%after=normaltext,
+leftmargin=\parindent + 3ex,
+rightmargin=10pt
+}
+
+% Configure the behaviour of level 2 entries
+% NOTE: we use the list counter "elegantitemsii"
+\setlist[elegantitems, 2]
+{label={\segoe \bfseries \arabic{elegantitemsi}.\arabic{elegantitemsii}}, %1.1, 1.2, 1.3...
+leftmargin=15pt,
+rightmargin=15pt}
+
+% Configure the behaviour of level 3 entries
+% NOTE: we use the list counter "elegantitemsiii"
+\setlist[elegantitems, 3]
+% Use a label of 1.1:<kern>(a), 1.1:<kern>(b) etc  
+{label={\segoe \bfseries \arabic{elegantitemsi}.\arabic{elegantitemsii}:\kern1.5pt(\alph{elegantitemsiii})},
+leftmargin=30pt,
+rightmargin=30pt}
