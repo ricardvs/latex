@@ -12,7 +12,7 @@
 \geometry{
     a4paper,
     top=30mm,
-    bottom=25mm,
+    bottom=45mm,
     left=20mm,
     right=20mm,
     headheight=35mm, % Adjust this value as needed for your content
@@ -747,7 +747,7 @@ breaklines=true
 %font=\segoe,
 %before=\segoe \bfseries,
 %after=normaltext,
-leftmargin=\parindent + 3ex,
+leftmargin=\parindent + 13ex,
 rightmargin=10pt
 }
 
