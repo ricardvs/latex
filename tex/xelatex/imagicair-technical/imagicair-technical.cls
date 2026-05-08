@@ -532,6 +532,13 @@ columns=flexible,
 breaklines=true
 }
 
+\usepackage{hyperref}
+\newcommand{\Fullref}[1]{%
+        \textit{{\textquotedbl}\fullref{#1}{\textquotedbl}}%
+  % If you specifically want single straight quotes instead of smart quotes:
+  % \textit{`#1'}
+}
+
 \RequirePackage{keystroke}
 
 %bibliografia en TOC
@@ -654,6 +661,7 @@ breaklines=true
 \newcommand{\datatype}[1]{{\scriptsize\hack{\color{ferrari}{#1}}}}
 \newcommand{\constant}[1]{{\scriptsize\hack{\color{Sepia}{#1}}}}
 \newcommand{\field}[1]{{\scriptsize\hack{\color{rust}{#1}}}}
+\newcommand{\storedvalue}[1]{{\scriptsize\hack{\color{dark-burgundy}{#1}}}}
 \newcommand{\variable}[1]{{\scriptsize\hack{\color{WildStrawberry}{#1}}}}
 \newcommand{\method}[1]{{\scriptsize\hack{\color{cobalt-blue}{#1}}}}
 \newcommand{\class}[1]{{\scriptsize\hack{\color{bright-orange}{#1}}}}
@@ -765,3 +773,4 @@ rightmargin=15pt}
 {label={\segoe \bfseries \arabic{elegantitemsi}.\arabic{elegantitemsii}:\kern1.5pt(\alph{elegantitemsiii})},
 leftmargin=30pt,
 rightmargin=30pt}
+
