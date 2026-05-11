@@ -752,11 +752,12 @@ breaklines=true
 
 \setlist[elegantitems, 1]
 {label={\segoe \bfseries \arabic{elegantitemsi}.}, %1., 2., 3., ...
-%font=\segoe,
+font=\sffamily\bfseries,
 %before=\segoe \bfseries,
 %after=normaltext,
 leftmargin=\parindent + 13ex,
-rightmargin=10pt
+rightmargin=10pt,
+style=nextline
 }
 
 % Configure the behaviour of level 2 entries
@@ -774,3 +775,12 @@ rightmargin=15pt}
 leftmargin=30pt,
 rightmargin=30pt}
 
+
+\newlist{elegantdescription}{description}{1}
+
+\setlist[elegantdescription]
+{
+font=\sffamily\bfseries,
+leftmargin=2cm,
+style=nextline
+}
