@@ -518,6 +518,10 @@ font={\color{DarkOrchid}},
 \definecolor{imagicair-text-blue}{HTML}{0071b1}
 \definecolor{cobalt-blue}{HTML}{0020C2}
 \definecolor{light-mint-green}{HTML}{C3E5D3}
+\definecolor{magenta-pink}{HTML}{AE2573}
+\definecolor{golden-sun}{HTML}{9C8412}
+\definecolor{dark-teal}{HTML}{005F61}
+\definecolor{aztec-blue}{HTML}{002D72}
 \RequirePackage[font=small,labelfont=bf,justification=centering]{caption}  % Required for specifying captions to tables and figures
 \captionsetup{labelsep = colon}
 
@@ -659,23 +663,28 @@ breaklines=true
 
 \newcommand{\inlineCode}[1]{{\scriptsize\hack{\colorbox{light-gray}{#1}}}}
 \newcommand{\datatype}[1]{{\scriptsize\hack{\color{ferrari}{#1}}}}
+\newcommand{\progkeyword}[1]{{\scriptsize\hack{\color{dark-teal}{#1}}}}
 \newcommand{\constant}[1]{{\scriptsize\hack{\color{Sepia}{#1}}}}
 \newcommand{\field}[1]{{\scriptsize\hack{\color{rust}{#1}}}}
 \newcommand{\storedvalue}[1]{{\scriptsize\hack{\color{dark-burgundy}{#1}}}}
 \newcommand{\variable}[1]{{\scriptsize\hack{\color{WildStrawberry}{#1}}}}
 \newcommand{\method}[1]{{\scriptsize\hack{\color{cobalt-blue}{#1}}}}
 \newcommand{\class}[1]{{\scriptsize\hack{\color{bright-orange}{#1}}}}
+\newcommand{\database}[1]{{\scriptsize\hack{\color{aztec-blue}{#1}}}}
 \newcommand{\dbtable}[2]{{\scriptsize\hack{\color{purple-jam}{#1}.\color{dark-slate-blue}{#2}}}}
 \newcommand{\storedProcedure}[2]{{\scriptsize\hack{\color{gray}{#1}.\color{mahogany}{#2}}}}
 
 \newcommand{\appLabel}[1]{{\ttfamily{\color{DarkOrchid}{#1}}}}
 \newcommand{\appValue}[1]{{\ttfamily{\color{Dandelion}{#1}}}}
+\newcommand{\proglang}[1]{{\smaller\lucida \selectfont \color{golden-sun}{#1}}}
 \newcommand{\sw}[1]{{\smaller\lucida \selectfont \color{rust}{#1}}}
 \newcommand{\so}[1]{{\small\sffamily \selectfont \color{Violet}{#1}}}
+\newcommand{\iaagent}[1]{{\smaller\lucida \selectfont \color{magenta-pink}{#1}}}
 \newcommand{\option}[1]{{\ttfamily{\emph{\color{Maroon}{#1}}}}}
 \newcommand{\app}[1]{\emph{\color{MidnightBlue}{#1}}}
 \newcommand{\mainApp}[1]{{\smaller\segoeib \selectfont \textbf{\color{MidnightBlue}{#1}}}}
-\newcommand{\enterprise}[1]{{\fontsize{8}{10}\segoe \textit{\color{Bittersweet}{#1}}}}
+%\newcommand{\enterprise}[1]{{\fontsize{8}{10}\segoe \textit{\color{Bittersweet}{#1}}}}
+\newcommand{\enterprise}[1]{{\smaller\segoe \textit{\color{Bittersweet}{#1}}}}
 \newcommand{\prompt}{{{\color{cerulean}{machine:\char"0024} }}}
 \newcommand{\sprompt}[1]{{{\color{cerulean}{machine:\char"0024}}  \mbox{{#1}} \Return\\}}
 \newcommand{\sqlComment}[1]{{{\color{cerulean}\# {#1}} }}
